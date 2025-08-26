@@ -1,0 +1,14 @@
+# Build klasörleri
+bin/
+obj/
+
+# Paketler
+packages/
+
+# Rider / VSCode
+.idea/
+.vscode/
+
+# Geçici dosyalar
+*.log
+*.vs/

@@ -1,0 +1,6 @@
+@AuthServerForJWT_Edu.API_HostAddress = http://localhost:5113
+
+GET {{AuthServerForJWT_Edu.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
