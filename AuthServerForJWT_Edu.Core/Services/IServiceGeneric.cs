@@ -1,7 +1,7 @@
 ﻿using SharedLibrary.Dtos;
 using System.Linq.Expressions;
 
-namespace AuthServerForJWT_Edu.Core.GenericServices;
+namespace AuthServerForJWT_Edu.Core.Services;
 
 public interface IServiceGeneric<TEntity, TDto> where TEntity: class where TDto : class
 {
