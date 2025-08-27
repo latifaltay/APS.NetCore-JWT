@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AuthServerForJWT_Edu.Data\AuthServerForJWT_Edu.Data.csproj" />
   </ItemGroup>
 
