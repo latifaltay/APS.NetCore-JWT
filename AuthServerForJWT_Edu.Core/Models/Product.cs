@@ -1,4 +1,6 @@
-﻿namespace AuthServerForJWT_Edu.Core.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace AuthServerForJWT_Edu.Core.Models;
 
 public class Product
 {
