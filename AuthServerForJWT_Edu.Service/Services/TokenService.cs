@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using SharedLibrary.Configuration;
+using SharedLibrary.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -29,6 +30,7 @@ public class TokenService : ITokenService
         var numberByte = new Byte[32];
         using var rnd = RandomNumberGenerator.Create();
         rnd.GetBytes(numberByte);
+
         return Convert.ToBase64String(numberByte);
     }
 

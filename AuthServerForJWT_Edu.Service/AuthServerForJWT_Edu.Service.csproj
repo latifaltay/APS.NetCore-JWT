@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AuthServerForJWT_Edu.Data\AuthServerForJWT_Edu.Data.csproj" />
+    <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj" />
   </ItemGroup>
 
 </Project>
