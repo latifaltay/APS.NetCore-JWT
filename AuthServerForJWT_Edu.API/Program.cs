@@ -1,3 +1,4 @@
+using AuthServerForJWT_Edu.API.Validations;
 using AuthServerForJWT_Edu.Core.Configuration;
 using AuthServerForJWT_Edu.Core.Models;
 using AuthServerForJWT_Edu.Core.Repositories;
@@ -6,7 +7,10 @@ using AuthServerForJWT_Edu.Core.UnitOfWork;
 using AuthServerForJWT_Edu.Data;
 using AuthServerForJWT_Edu.Data.Repositories;
 using AuthServerForJWT_Edu.Service.Services;
+using FluentValidation;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SharedLibrary.Configuration;
@@ -71,6 +75,9 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.Zero
     };
 });
+
+
+builder.Services.AddValidatorsFromAssemblyContaining<CreateUserDtoValidator>();
 
 
 var app = builder.Build();
