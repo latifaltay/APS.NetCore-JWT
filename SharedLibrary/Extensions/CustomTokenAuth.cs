@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using SharedLibrary.Configuration;
+using SharedLibrary.Services;
 
 namespace SharedLibrary.Extensions;
 
@@ -18,7 +19,7 @@ public static class CustomTokenAuth
             {
                 ValidIssuer = tokenOptions.Issuer,
                 ValidAudience = tokenOptions.Audience[0],
-                //IssuerSigningKey = SignService.GetSymmetricSecurityKey(tokenOptions.SecurityKey),
+                IssuerSigningKey = SignService.GetSymetricSecurityKey(tokenOptions.SecurityKey),
 
                 ValidateIssuerSigningKey = true,
                 ValidateAudience = true,
