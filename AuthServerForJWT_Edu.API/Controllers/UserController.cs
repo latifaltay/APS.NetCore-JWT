@@ -18,7 +18,7 @@ public class UserController : CustomBaseController
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateUser(CreateUserDto createUserDto) 
+    public async Task<IActionResult> CreateUser(CreateUserDto createUserDto)
     {
         return ActionResultInstance(await _userService.CreateUserAsync(createUserDto));
     }
@@ -26,9 +26,17 @@ public class UserController : CustomBaseController
 
     [Authorize]
     [HttpGet]
-    public async Task<IActionResult> GetUser() 
+    public async Task<IActionResult> GetUser()
     {
         return ActionResultInstance(await _userService.GetUserByNameAsync(HttpContext.User.Identity.Name));
+    }
+
+
+
+    [HttpPost("CreateUserRoles/{userName}")]
+    public async Task<IActionResult> CreateUserRoles(string userName) 
+    {
+        return ActionResultInstance(await _userService.CreateUserRoles(userName));
     }
 
 }
