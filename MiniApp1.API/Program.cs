@@ -12,6 +12,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.Configure<CustomTokenOption>(builder.Configuration.GetSection("TokenOption"));
 var tokenOptions = builder.Configuration.GetSection("TokenOption").Get<CustomTokenOption>();
 
+builder.Services.AddAuthorization(opts =>
+{
+    opts.AddPolicy("AnkaraPolicy", policy =>
+    {
+        policy.RequireClaim("city", "ankara");
+    });
+});
+
 builder.Services.AddCustomTokenAuth(tokenOptions);
 
 var app = builder.Build();

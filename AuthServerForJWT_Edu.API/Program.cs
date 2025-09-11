@@ -53,6 +53,7 @@ builder.Services.AddIdentity<UserApp, IdentityRole>(Opt =>
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 
+
 builder.Services.Configure<CustomTokenOption>(builder.Configuration.GetSection("TokenOption"));
 
 builder.Services.Configure<List<Client>>(builder.Configuration.GetSection("Clients"));

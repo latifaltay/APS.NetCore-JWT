@@ -43,7 +43,8 @@ public class TokenService : ITokenService
             new Claim(ClaimTypes.NameIdentifier,userApp.Id),
             new Claim(JwtRegisteredClaimNames.Email, userApp.Email),
             new Claim(ClaimTypes.Name, userApp.UserName),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim("city", userApp.City) // ClaimType ya da JwtRegisteredClaimNames uzaerindetoken'a eklemek istediğimiz claimlere uygun bir metot yoksa yandaki şekilde kendimiz belirleyebiliyoruz
         };
 
         userList.AddRange(audiences.Select(x => new Claim(JwtRegisteredClaimNames.Aud, x)));
