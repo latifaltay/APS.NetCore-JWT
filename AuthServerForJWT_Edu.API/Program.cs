@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SharedLibrary.Configuration;
 using SharedLibrary.Services;
+using SharedLibrary.Extensions;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -51,6 +52,7 @@ builder.Services.AddIdentity<UserApp, IdentityRole>(Opt =>
     Opt.Password.RequireNonAlphanumeric = false;
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
+
 builder.Services.Configure<CustomTokenOption>(builder.Configuration.GetSection("TokenOption"));
 
 builder.Services.Configure<List<Client>>(builder.Configuration.GetSection("Clients"));
@@ -77,8 +79,9 @@ builder.Services.AddAuthentication(options =>
 });
 
 
-builder.Services.AddValidatorsFromAssemblyContaining<CreateUserDtoValidator>();
 
+builder.Services.AddValidatorsFromAssemblyContaining<CreateUserDtoValidator>();
+builder.Services.UseCustomValidationResponse();
 
 var app = builder.Build();
 
@@ -88,7 +91,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+else 
+{
+    app.UseCustomException();
+}
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
