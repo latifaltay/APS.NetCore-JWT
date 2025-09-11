@@ -7,14 +7,6 @@
         "Action": "Start"
       },
       {
-        "Path": "MiniApp2.API\\MiniApp2.API.csproj",
-        "Action": "Start"
-      },
-      {
-        "Path": "MiniApp3.API\\MiniApp3.API.csproj",
-        "Action": "Start"
-      },
-      {
         "Path": "AuthServerForJWT_Edu.API\\AuthServerForJWT_Edu.API.csproj",
         "Action": "Start"
       }
